@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+# Commence the countdown!
+# An example input file is countdown.in
+import datetime, os, sys
+output = []
+for line in sys.stdin:
+    line = line.strip()
+    i = line.index(' ')
+    date_str = line[:i]
+    name = line[i+1:]
+    year, month, day = map(int, date_str.split('/'))
+    date = datetime.date(year, month, day)
+    delta = date - datetime.date.today()
+    days = delta.days
+    output.append((days, name))
+output.sort()
+for days, name in output:
+    print "%d day%s until %s" % (days, "" if days == 1 else "s", name)
