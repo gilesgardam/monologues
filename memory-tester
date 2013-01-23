@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+# Tests if you have memorized the contents of a file, line by line.
+import sys
+if len(sys.argv) < 2:
+    print "Usage: python tester.py filename"
+    sys.exit()
+filename = sys.argv[1]
+F = file(filename)
+count = 1
+for line in F.readlines():
+    user_input = None
+    while user_input != line.strip():
+        user_input = raw_input("%3d> " % count)
+    count += 1
