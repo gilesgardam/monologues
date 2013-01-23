@@ -6,6 +6,8 @@ import datetime, os, sys
 output = []
 for line in sys.stdin:
     line = line.strip()
+    if line.startswith('#'):
+        continue # it's a comment
     i = line.index(' ')
     date_str = line[:i]
     name = line[i+1:]
